@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевод байтов</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons8-binary-file-50.png">
+</head>
+<body>
+    <div id="bytes-translate">
+        <div class="header">
+            <img src="icons8-binary-file-50.png" alt="Bytes" height="50" width="50">
+        </div>
+        <div class="input-div">
+            <label for="bits-input">Биты: </label>
+            <input id="bits-input" type="number" placeholder='Биты' v-model="bits" @change="translateBits"> 
+            <input class="input-range" id="bits-input" type="range" placeholder='Биты' v-model="bits" @input="translateBits" :title="bits" max="100000"><br>
+        </div>
+        <div class="input-div">
+            <label for="bytes-input">Байты: </label>
+            <input id="bytes-input" type="number" placeholder='Байты' v-model="bytes" @change="translateBytes"> 
+            <input class="input-range" id="bytes-input" type="range" placeholder='Байты' v-model="bytes" @input="translateBytes" :title="bytes" max="100000"><br>
+        </div>
+        <div class="input-div">
+            <label for="kBytes-input">КБайты: </label>
+            <input id="kBytes-input" type="number" placeholder='КБайты' v-model="kBytes" @change="translateKBytes"> 
+            <input class="input-range" id="kBytes-input" type="range" placeholder='КБайты' v-model="kBytes" @input="translateKBytes" :title="kBytes" max="1024"><br>
+        </div>
+        <div class="input-div">
+            <label for="mBytes-input">МБайты: </label>
+            <input id="mBytes-input" type="number" placeholder='МБайты' v-model="mBytes" @change="translateMBytes"> 
+            <input class="input-range" id="mBytes-input" type="range" placeholder='МБайты' v-model="mBytes" @input="translateMBytes" :title="mBytes" max="100"><br>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#bytes-translate',
+            data: {
+                Test: "VUE загружена!",
+                bits: 1073741824,
+                bytes: 1048576,
+                kBytes: 1024,
+                mBytes: 1
+            },
+            methods: {
+                translateBits() {
+                    this.bytes = (this.bits / 1024).toFixed(3);
+                    this.kBytes = (this.bytes / 1024).toFixed(3);
+                    this.mBytes = (this.kBytes / 1024).toFixed(3);
+                },
+                translateBytes() {
+                    this.bits = (this.bytes * 1024).toFixed(3);
+                    this.kBytes = (this.bytes / 1024).toFixed(3);
+                    this.mBytes = (this.kBytes / 1024).toFixed(3);
+                },                
+                translateKBytes() {
+                    this.bits = (this.bytes * 1024).toFixed(3);
+                    this.bytes = (this.kBytes * 1024).toFixed(3);
+                    this.mBytes = (this.kBytes / 1024).toFixed(3);
+                },
+                translateMBytes() {
+                    this.bits = (this.bytes * 1024).toFixed(3);
+                    this.bytes = (this.kBytes * 1024).toFixed(3);
+                    this.kBytes = (this.mBytes * 1024).toFixed(3);
+                }
+            }
+        })
+    </script>
+<footer>
+    <hr>
+    <p>Icons by <a href="https://icons8.com/">icons8</a></p>
+</footer>
+</body>
+</html>

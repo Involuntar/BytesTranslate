@@ -1,0 +1,48 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse at top, #787878, transparent),
+    radial-gradient(ellipse at bottom, #787878, transparent);
+    font-size: 2rem;
+    margin: 0;
+}
+#bytes-translate{
+    max-width: 576px;
+    margin: 0 auto;
+    padding: 10px;
+}
+label{
+    display: block;
+    width: 80%;
+    margin-bottom: 10px;
+}
+input{
+    box-shadow:inset 0 0 6px 5px gray, 4px 4px 6px 5px rgb(56, 56, 56);
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px;
+}
+.input-div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.input-range{
+    box-shadow:inset 0 0 6px 5px gray, -4px -4px 6px 5px rgb(56, 56, 56);
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    block-size: 10px;
+    margin-left: 10px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+footer{
+    position: relative;
+    text-align: center;
+    bottom: 0;
+}
